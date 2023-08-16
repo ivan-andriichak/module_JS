@@ -53,5 +53,6 @@ console.log(typeof c);
 
 let yourName = prompt('Enter your name');
 let yourMiddleName = prompt('Enter your middle name');
-let yourAge = prompt('Enter your age');
-console.log(`${yourName} ${yourMiddleName} ${yourAge}`);
+let yourAge = +prompt('Enter your age');
+console.log(`${yourName} ${yourMiddleName}`);
+console.log(yourAge);
