@@ -82,21 +82,21 @@ console.log(users[9]['password']);
 //     Якщо змінна x не дорівнює нулю, виведіть 'Вірно', інакше виведіть 'Невірно'. Перевірте  скрипт при a, що дорівнює 1, 0, -3
 
 let temp1 = 1;
-if (temp1 != 0) {
+if (temp1 !== 0) {
     console.log('Значення 1: Вірно');
 } else {
     console.log('Значення 1: Невірно');
 }
 
 let temp2 = 0;
-if (temp2 != 0) {
+if (temp2 !== 0) {
     console.log('Значення 0: Вірно');
 } else {
     console.log('Значення 0: Невірно');
 }
 
 let temp3 = -3;
-if (temp3 != 0) {
+if (temp3 !== 0) {
     console.log('Значення -3: Вірно');
 } else {
     console.log('Значення -3: Невірно');
