@@ -32,13 +32,13 @@ function calcAreaCelinder(r1, h) {
     let baseArea = 2 * piApproximation * (r1 ** 2);
 
     let totalArea = lateralArea + baseArea;
-
-    return totalArea;
+    const exchangedAmount =  totalArea.toFixed(4);
+    return exchangedAmount;
 }
 
 const r1 = 3;
 const h = 10;
-let celinderArea = calcAreaCelinder(r, h);
+let celinderArea = calcAreaCelinder(r1, h);
 console.log(`Area of celinder = ${celinderArea}`);
 console.log(`---------------------------------------`);
 
