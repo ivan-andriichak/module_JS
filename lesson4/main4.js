@@ -15,7 +15,9 @@ console.log(`---------------------------------------`);
 function calcAreaCircle(r) {
     const piApproximation = 3.14159;
     let area = 2 * piApproximation * (r ** 2);
-    return area;
+    const exchangedAmount =  area.toFixed(4);
+
+    return exchangedAmount;
 }
 
 let r = 3;
@@ -28,11 +30,10 @@ console.log(`---------------------------------------`);
 function calcAreaCelinder(r1, h) {
     const piApproximation = 3.14159;
     let lateralArea = 2 * piApproximation * r1 * h;
-
     let baseArea = 2 * piApproximation * (r1 ** 2);
-
     let totalArea = lateralArea + baseArea;
     const exchangedAmount =  totalArea.toFixed(4);
+
     return exchangedAmount;
 }
 
