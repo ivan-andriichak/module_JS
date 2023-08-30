@@ -27,9 +27,9 @@ console.log(`---------------------------------------`);
 // let r = 5;
 // let circkleArea = calcCircleArea(r);
 // console.log(circkleArea);
+
 // arrow fuunction
 const calcCircleArea = (r) => Math.round(Math.PI * r ** 2);
-
 
 let r = 5;
 let circleArea = calcCircleArea(r);
