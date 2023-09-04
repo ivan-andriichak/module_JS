@@ -169,7 +169,7 @@ const diamond = deckOfCards.filter(card => card.cardSuit === 'diamond');
 console.log(diamond);
 
 // - всі трефи від 9 та більшеc
-const clubses = deckOfCards.filter(card => card.cardSuit === 'clubs' && card.value >= 9 );
+const clubses = deckOfCards.filter(card => card.cardSuit === 'clubs' &&  (card.value === 'ace' || card.value === 'jack' || card.value === 'queen' || card.value === 'king' || card.value >= 9) );
 console.log(clubses);
 //     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
 //         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
