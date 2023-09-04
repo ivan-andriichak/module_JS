@@ -37,7 +37,7 @@ console.log(`_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ `);
 
 // - Є "брудна" стрінга let str = ' dirty string   ' . Почистити її від зайвих пробілів.
 let strDirty = ' dirty string   ';
-let strClear = strDirty.replaceAll(' ', '');
+let strClear = strDirty.trim(' ', '');
 console.log(strClear);
 console.log(`_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ `);
 
@@ -169,7 +169,7 @@ const diamond = deckOfCards.filter(card => card.cardSuit === 'diamond');
 console.log(diamond);
 
 // - всі трефи від 9 та більшеc
-const clubses = deckOfCards.filter(card => card.cardSuit === 'clubs' && card.value > 6);
+const clubses = deckOfCards.filter(card => card.cardSuit === 'clubs' && card.value >= 9 );
 console.log(clubses);
 //     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
 //         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
