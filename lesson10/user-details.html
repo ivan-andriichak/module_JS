@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі користувача</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        span {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .indent {
+            margin-left: 20px;
+
+        }
+    </style>
+</head>
+<body>
+
+<h1>Деталі користувача</h1>
+<ul id="userDetails"></ul>
+
+<script>
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('id');
+    const userDetails = document.getElementById('userDetails');
+
+    // Функція для відображення об'єкта та всіх вкладених об'єктів у вигляді списків
+    function displayObjectData(obj, parentElement, depth = 0) {
+        const list = document.createElement('ul');
+        for (const key in obj) {
+            const listItem = document.createElement('li');
+            const itemText = document.createElement('span');
+            itemText.textContent = `${key}:`;
+
+            if (typeof obj[key] === 'object' && obj[key] !== null) {
+                // Якщо значення - об'єкт, відображаємо його вкладені дані з більшим відступом
+                listItem.style.marginLeft = `${depth * 20}px`;
+                displayObjectData(obj[key], listItem, depth + 1);
+            } else {
+                // В іншому випадку, відображаємо значення
+                const valueItem = document.createElement('span');
+                valueItem.textContent = obj[key];
+                listItem.appendChild(itemText);
+                listItem.appendChild(valueItem);
+            }
+
+            list.appendChild(listItem);
+        }
+        parentElement.appendChild(list);
+    }
+
+    // Функція для отримання даних про користувача та відображення їх на сторінці
+    function getUserDetails() {
+        fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+            .then(response => response.json())
+            .then(user => {
+                displayObjectData(user, userDetails);
+            })
+            .catch(error => console.error('Помилка отримання даних користувача:', error));
+    }
+
+    // Викликаємо функцію при завантаженні сторінки
+    getUserDetails();
+
+</script>
+
+</body>
+</html>

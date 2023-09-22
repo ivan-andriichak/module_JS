@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список користувачів</title>
+</head>
+<body>
+
+<h1>Список користувачів</h1>
+<ul id="userList"></ul>
+
+<script>
+
+    const userList = document.getElementById('userList');
+
+    // Функція для отримання списку користувачів та відображення їх на сторінці
+    function getUsers() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(users => {
+                users.forEach(user => {
+                    const listItem = document.createElement('li');
+                    const userLink = document.createElement('a');
+
+                    // Посилання на сторінку "user-details.html" з параметром ID користувача
+                    userLink.href = `user-details.html?id=${user.id}`;
+                    userLink.target = "_blank"; // Відкривати в новій вкладці
+                    userLink.innerText = `${user.id} - ${user.name}`;
+
+                    document.body.appendChild(userLink);
+                    listItem.appendChild(userLink);
+                    userList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Помилка отримання користувачів:', error));
+    }
+
+    // Викликаємо функцію при завантаженні сторінки
+    getUsers();
+
+</script>
+
+</body>
+</html>
